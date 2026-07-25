@@ -1,2 +1,2 @@
-# iaworkshopsummer
+# IA Workshop Summer
 IA Workshop Summer
