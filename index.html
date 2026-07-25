@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller de Programación con IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFCF5;
+    --card:#FFFFFF;
+    --ink:#2B2418;
+    --ink-soft:#6B6152;
+    --ocean:#1E96A8;
+    --ocean-dark:#146776;
+    --coral:#FF7B54;
+    --coral-dark:#C24A26;
+    --sun:#FFC145;
+    --sun-dark:#B37D0E;
+    --palm:#2FA786;
+    --palm-dark:#1D7863;
+    --line:#EFE6D3;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:'Nunito Sans',sans-serif; background:var(--paper); color:var(--ink); line-height:1.65;}
+  h1,h2,h3{font-family:'Sora',sans-serif; margin:0;}
+  .badge, .eyebrow{font-family:'Fredoka',sans-serif;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px 100px;}
+
+  img.ph{display:block; object-fit:cover; background:#EFE6D3; border:2px dashed #D8CBA8; border-radius:14px; color:var(--ink-soft); font-size:12px; text-align:center;}
+
+  /* ---- banner ---- */
+  .banner{position:relative; overflow:hidden; background:var(--ocean); border-radius:0 0 32px 32px; padding:56px 24px 130px; text-align:center; color:#fff;}
+  .banner .eyebrow{font-size:18px; opacity:.9; margin-bottom:8px;}
+  .banner h1{font-size:clamp(30px,5vw,48px); font-weight:800; letter-spacing:-.5px; line-height:1.08;}
+  .banner .sub{margin-top:14px; font-size:16px; opacity:.92; max-width:520px; margin-left:auto; margin-right:auto;}
+  .banner-art{position:absolute; inset:0; pointer-events:none;}
+
+  /* ---- sections ---- */
+  section{margin-top:56px;}
+  .section-head{display:flex; align-items:center; gap:12px; margin-bottom:20px;}
+  .dot{width:14px; height:14px; border-radius:50%;}
+  .section-head h2{font-size:24px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px;}
+
+  /* bienvenida */
+  .bienvenida-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:28px; align-items:center;}
+  .bienvenida-grid p{margin:0 0 12px; color:var(--ink-soft); font-size:15px;}
+  .bienvenida-grid p:last-child{margin-bottom:0;}
+
+  /* placeholder presentacion */
+  .placeholder{border:2px dashed var(--line); border-radius:20px; padding:24px; display:flex; gap:20px; align-items:center; background:#fff;}
+  .avatar-ph{width:76px; height:76px; border-radius:50%; background:var(--paper); border:2px dashed #D8CBA8; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:26px; color:#B7A98A;}
+  .placeholder .txt{color:var(--ink-soft); font-size:14px;}
+  .placeholder .txt b{color:var(--ink); font-family:'Sora'; font-size:15px; display:block; margin-bottom:4px;}
+
+  /* classroom */
+  .classroom-card{background:var(--palm); color:#fff; border-radius:16px; padding:22px; margin-bottom:22px;}
+  .classroom-top{display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .classroom-card .code{font-family:'Fredoka'; font-size:22px; background:rgba(255,255,255,.2); padding:6px 16px; border-radius:10px; letter-spacing:1px;}
+
+  /* agenda day strip */
+  .day-strip{display:grid; grid-template-columns:repeat(5,1fr); gap:10px;}
+  .day-chip{border-radius:14px; padding:14px 10px; text-align:center; color:#fff;}
+  .day-chip .n{font-family:'Fredoka'; font-size:13px; opacity:.85;}
+  .day-chip .t{font-family:'Sora'; font-size:13px; font-weight:700; margin-top:2px;}
+  .day-chip.c1{background:var(--ocean);}
+  .day-chip.c2{background:var(--coral);}
+  .day-chip.c3{background:var(--sun); color:var(--ink);}
+  .day-chip.c4{background:var(--palm);}
+  .day-chip.c5{background:var(--ink);}
+
+  /* reglas */
+  .rules-list{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .rules-list li{display:flex; gap:10px; font-size:14px; color:var(--ink-soft);}
+  .rules-list li b{color:var(--ink);}
+  .rules-list li.highlight{background:#FFF1E0; padding:10px 14px; border-radius:12px; color:var(--coral-dark); font-weight:700;}
+
+  /* tarea destacada */
+  .tarea-card{background:var(--coral); color:#fff; border-radius:20px; padding:28px;}
+  .tarea-card h2{color:#fff; font-size:22px; margin-bottom:16px;}
+  .tarea-steps{list-style:none; margin:0; padding:0; display:grid; gap:12px;}
+  .tarea-steps li{display:flex; gap:14px; align-items:flex-start; font-size:14.5px;}
+  .tarea-steps .stepnum{font-family:'Fredoka'; background:rgba(255,255,255,.22); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px;}
+  .tarea-img-wrap{margin-top:18px;}
+
+  /* rompehielos */
+  .rompe-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center;}
+  .rompe-grid ul{margin:14px 0 0; padding-left:20px; color:var(--ink-soft); font-size:14.5px;}
+  .rompe-grid li{margin-bottom:6px;}
+
+  /* libros */
+  .shelf{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:22px;}
+  .spine{border-radius:14px; overflow:hidden; color:#fff; display:flex; flex-direction:column;}
+  .spine .row-tag-bar{font-family:'Fredoka'; font-size:14px; padding:8px 12px;}
+  .spine .book-info{padding:14px 12px 16px;}
+  .spine .title{font-family:'Sora'; font-size:16px; font-weight:700; line-height:1.3;}
+  .spine .author{font-size:12.5px; opacity:.85; margin-top:6px;}
+  .s1{background:var(--ocean);}
+  .s2{background:var(--coral);}
+  .s3{background:var(--palm);}
+  .s4{background:var(--sun-dark);}
+
+  /* gemini a fondo */
+  .feature-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .feature{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px;}
+  .feature .icon{width:40px; height:40px; border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:12px;}
+  .feature h3{font-size:15px; margin-bottom:6px;}
+  .feature p{font-size:13.5px; color:var(--ink-soft); margin:0;}
+  .feature.warn{grid-column:1 / -1; background:#FFF1E0; border-color:#FFDBB0;}
+  .feature.warn .icon{background:var(--sun);}
+  .feature.warn h3{color:var(--coral-dark);}
+
+  @media (max-width:720px){
+    .bienvenida-grid, .rompe-grid{grid-template-columns:1fr;}
+    .day-strip{grid-template-columns:repeat(5,1fr); font-size:11px;}
+    .shelf{grid-template-columns:1fr 1fr;}
+    .feature-grid{grid-template-columns:1fr;}
+    .placeholder{flex-direction:column; text-align:center;}
+    .classroom-top{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <svg class="banner-art" viewBox="0 0 900 420" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="70" cy="380" r="90" fill="#ffffff" opacity="0.08"/>
+    <circle cx="840" cy="360" r="130" fill="#ffffff" opacity="0.07"/>
+    <g transform="translate(40,30)" fill="#FFC145">
+      <path d="M0 -16 L5 -5 L16 0 L5 5 L0 16 L-5 5 L-16 0 L-5 -5 Z"/>
+    </g>
+    <g transform="translate(858,36)" fill="#FF7B54">
+      <path d="M0 -18 L5 -5 L18 0 L5 5 L0 18 L-5 5 L-18 0 L-5 -5 Z"/>
+    </g>
+  </svg>
+  <div class="eyebrow">taller · 5 días · 2 horas diarias</div>
+  <h1>Taller de Programación<br>con IA</h1>
+  <p class="sub">Aprende a usar Gemini de forma práctica esta semana, y cierra el curso exponiendo un libro de IA y tecnología en equipo, con premio para los mejores.</p>
+</div>
+
+<div class="wrap" style="margin-top:-70px; position:relative; z-index:2;">
+
+  <!-- BIENVENIDA -->
+  <section class="card bienvenida-grid" style="margin-top:0;">
+    <div>
+      <div class="section-head" style="margin-bottom:14px;"><span class="dot" style="background:var(--ocean);"></span><h2>Bienvenida</h2></div>
+      <p>Hola a todos, bienvenidos al taller. Durante los próximos 5 días vamos a aprender a usar la inteligencia artificial de Google de forma práctica, para que les sirva de verdad en la escuela y en su día a día, no solo de forma superficial.</p>
+      <p>No es un curso de puro teoría. Cada día vamos a hacer algo con las manos: crear cuentas, escribir instrucciones, subir archivos, generar ideas. Y para cerrar la semana, cada equipo va a exponer un libro sobre inteligencia artificial y tecnología, con creatividad, imágenes, y toda la energía que puedan meterle.</p>
+      <p>Va a haber un premio para el mejor equipo, así que desde ahora empiecen a pensar en grande.</p>
+    </div>
+    <img class="ph" src="img/students1.png" width="260" height="220" alt="img/students1.png">
+  </section>
+
+  <!-- PRESENTACION -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--coral);"></span><h2>Presentación</h2></div>
+    <div class="placeholder">
+      <div class="avatar-ph">✎</div>
+      <div class="txt"><b>tu turno</b>[espacio reservado — completa aquí quién eres, tu rol, y algo personal que quieras compartir con el grupo]</div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Agenda</h2></div>
+    <div class="card">
+      <div class="classroom-card">
+        <div class="classroom-top">
+          <div>únete a Google Classroom</div>
+          <div class="code">tm236mon</div>
+        </div>
+        <div class="tarea-img-wrap">
+          <img class="ph" src="img/classroom1.png" width="600" height="300" alt="img/classroom1.png">
+        </div>
+      </div>
+      <div class="day-strip">
+        <div class="day-chip c1"><div class="n">día 1</div><div class="t">Arranque</div></div>
+        <div class="day-chip c2"><div class="n">día 2</div><div class="t">Prompts</div></div>
+        <div class="day-chip c3"><div class="n">día 3</div><div class="t">Creatividad</div></div>
+        <div class="day-chip c4"><div class="n">día 4</div><div class="t">Workspace</div></div>
+        <div class="day-chip c5"><div class="n">día 5</div><div class="t">Exposición</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGLAS -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--sun-dark);"></span><h2>Reglas</h2></div>
+    <div class="card">
+      <ul class="rules-list">
+        <li>Se necesitan <b>4 asistencias</b> y <b>5 entregas</b> para acreditar.</li>
+        <li>Quien no entregue las 5 actividades, viene los <b>sábados</b>.</li>
+        <li class="highlight">La entrega del viernes (la exposición) es la más importante de todas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TAREA DIA 1 -->
+  <section>
+    <div class="tarea-card">
+      <h2>Tarea del día 1</h2>
+      <ul class="tarea-steps">
+        <li><span class="stepnum">1</span>Crea tu cuenta de Gmail.</li>
+        <li><span class="stepnum">2</span>Únete a la clase de Classroom con el código <b>tm236mon</b>.</li>
+        <li><span class="stepnum">3</span>En una hoja de papel, escribe a mano tu presentación y qué es para ti la inteligencia artificial generativa, en tus propias palabras.</li>
+        <li><span class="stepnum">4</span>Toma una foto de la hoja (PNG o JPEG) y súbela como tu entrega del día en Classroom.</li>
+      </ul>
+      <div class="tarea-img-wrap">
+        <img class="ph" src="img/foto_tarea.png" width="600" height="320" alt="img/foto_tarea.png">
+      </div>
+    </div>
+  </section>
+
+  <!-- ROMPEHIELOS -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--sun);"></span><h2>Actividad rompehielos</h2></div>
+    <div class="card rompe-grid">
+      <div>
+        <p style="color:var(--ink-soft); font-size:15px; margin:0;">Vamos a conocernos un poco. Uno por uno van a decir cuatro cosas, y seguimos por fila o como prefieras organizarlo. Tú empiezas primero para dar el ejemplo.</p>
+        <ul>
+          <li>Su nombre</li>
+          <li>Cómo les gusta que les digan</li>
+          <li>Una película o comida favorita</li>
+          <li>Un hobby o algo que les guste hacer</li>
+        </ul>
+      </div>
+      <img class="ph" src="img/actividad_rompehielos.png" width="260" height="200" alt="img/actividad_rompehielos.png">
+    </div>
+  </section>
+
+  <!-- EQUIPOS Y LIBROS -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--ocean);"></span><h2>Equipos y libros por fila</h2></div>
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:15px; margin:0 0 20px;">Equipos de 4, organizados por fila. Cada fila investiga su libro toda la semana con ayuda de Gemini, y lo expone el viernes con creatividad y elementos gráficos. Se premia por creatividad, claridad del mensaje, uso de lo aprendido, y trabajo en equipo.</p>
+      <div class="shelf">
+        <div class="spine s1">
+          <div class="row-tag-bar">fila 1</div>
+          <img class="ph" src="img/libro1.png" width="220" height="220" alt="img/libro1.png">
+          <div class="book-info"><div class="title">La máquina se detiene</div><div class="author">E.M. Forster</div></div>
+        </div>
+        <div class="spine s2">
+          <div class="row-tag-bar">fila 2</div>
+          <img class="ph" src="img/libro2.png" width="220" height="220" alt="img/libro2.png">
+          <div class="book-info"><div class="title">Fahrenheit 451</div><div class="author">Ray Bradbury</div></div>
+        </div>
+        <div class="spine s3">
+          <div class="row-tag-bar">fila 3</div>
+          <img class="ph" src="img/libro3.png" width="220" height="220" alt="img/libro3.png">
+          <div class="book-info"><div class="title">Yo, Robot</div><div class="author">Isaac Asimov</div></div>
+        </div>
+        <div class="spine s4">
+          <div class="row-tag-bar">fila 4</div>
+          <img class="ph" src="img/libro4.png" width="220" height="220" alt="img/libro4.png">
+          <div class="book-info"><div class="title">Feed</div><div class="author">M.T. Anderson</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEMINI A FONDO -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Gemini a fondo</h2></div>
+    <p style="color:var(--ink-soft); font-size:14.5px; margin:-8px 0 18px;">Ya usan IA generativa todos los días, así que vamos directo a lo que la hace distinta y a cómo se conecta con este taller.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon" style="background:var(--ocean);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="7" height="7" rx="1.5" fill="#fff"/><rect x="11" y="3" width="7" height="7" rx="1.5" fill="#fff" opacity="0.6"/><rect x="2" y="12" width="7" height="5" rx="1.5" fill="#fff" opacity="0.6"/></svg></div>
+        <h3>No es solo texto</h3>
+        <p>Combina texto, imágenes, documentos y audio al mismo tiempo, todo procesado junto: esto se llama ser multimodal. Le pueden subir una foto de su cuaderno o describirle algo en voz alta y lo entiende igual que si fuera texto escrito.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:var(--coral);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#fff" stroke-width="2"/><path d="M10 6v4l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Busca información actual</h3>
+        <p>Se conecta a una búsqueda en tiempo real cuando lo necesita, así que puede verificar algo que pasó esta semana, en vez de solo inventarlo con lo que ya traía guardado desde antes.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:var(--sun-dark);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="4" y="2" width="12" height="16" rx="1.5" stroke="#fff" stroke-width="1.6"/><line x1="7" y1="7" x2="13" y2="7" stroke="#fff" stroke-width="1.4"/><line x1="7" y1="10" x2="13" y2="10" stroke="#fff" stroke-width="1.4"/><line x1="7" y1="13" x2="10" y2="13" stroke="#fff" stroke-width="1.4"/></svg></div>
+        <h3>Aguanta documentos largos</h3>
+        <p>Puede leer un libro completo o varios capítulos de un jalón y conectar ideas entre partes distintas, en vez de olvidar lo que leyó al principio. Esto les va a servir directo para investigar su libro asignado sin subirlo en pedazos sueltos.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:var(--palm-dark);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#fff" stroke-width="1.6"/><line x1="2" y1="7" x2="18" y2="7" stroke="#fff" stroke-width="1.4"/></svg></div>
+        <h3>Vive en Workspace</h3>
+        <p>Está integrado en Gmail, Docs, Slides y Sheets: ayuda directo mientras escriben o arman una presentación, sin copiar y pegar de una app a otra.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:var(--ocean-dark);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M6 4 L2 10 L6 16" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 4 L18 10 L14 16" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>También entiende código</h3>
+        <p>No solo genera texto normal, también puede leer, escribir y explicar código de programación en distintos lenguajes, lo cual es justo el eje de este taller.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:var(--coral-dark);"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="#fff" stroke-width="1.6"/><path d="M10 6v4l2.5 2.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3>Recuerda el hilo de la conversación</h3>
+        <p>Dentro de una misma conversación, recuerda lo que ya le dijeron antes, así que pueden ir refinando una idea paso a paso en vez de repetir todo el contexto cada vez.</p>
+      </div>
+      <div class="feature warn">
+        <div class="icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3 L18 17 H2 Z" stroke="#C24A26" stroke-width="1.6" stroke-linejoin="round"/><line x1="10" y1="8" x2="10" y2="12" stroke="#C24A26" stroke-width="1.6" stroke-linecap="round"/><circle cx="10" cy="14.5" r="1" fill="#C24A26"/></svg></div>
+        <h3>No siempre tiene la razón</h3>
+        <p>Puede "alucinar" información que suena creíble pero no es cierta. Regla de oro: usarlo para investigar y generar ideas más rápido, pero verificar siempre lo importante, sobre todo antes de la exposición del viernes.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:17px; margin:32px 0 6px;">Gemini y programación</h3>
+    <p style="color:var(--ink-soft); font-size:14.5px; margin:0 0 18px;">Ya que este es un taller de programación, vale la pena detenernos en cómo Gemini ayuda específicamente con código.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Explica código línea por línea</h3>
+        <p>Si les pasan un fragmento de código que no entienden, se los puede explicar en español sencillo, paso a paso, sin que tengan que adivinar qué hace cada parte.</p>
+      </div>
+      <div class="feature">
+        <h3>Encuentra y corrige errores</h3>
+        <p>Si su código marca un error, le pueden pegar el mensaje de error junto con el código, y Gemini les ayuda a identificar qué está mal y cómo arreglarlo.</p>
+      </div>
+      <div class="feature">
+        <h3>Genera código desde una idea</h3>
+        <p>Le pueden describir lo que quieren lograr en español ("que la pantalla cambie de color al hacer clic") y Gemini escribe el código base para lograrlo.</p>
+      </div>
+      <div class="feature">
+        <h3>Traduce entre lenguajes</h3>
+        <p>Si tienen un ejemplo en un lenguaje de programación, pueden pedirle que lo pase a otro lenguaje distinto, útil para comparar cómo se resuelve lo mismo de formas diferentes.</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:18px; background:#FFF1E0; border-radius:16px; padding:16px 20px; font-size:14px; color:var(--coral-dark);">
+      Aun así, la meta esta semana es que entiendan lo que Gemini les da, no que lo copien sin revisar. Un código que no pueden explicar con sus propias palabras no cuenta como aprendido.
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
