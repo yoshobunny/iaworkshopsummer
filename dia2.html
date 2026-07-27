@@ -124,11 +124,33 @@
     .step-circle{margin-bottom:0; flex-shrink:0;}
     .step-line{display:none;}
   }
+.back-link{
+  position:absolute;
+  top:20px;
+  left:20px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+  text-decoration:none;
+  font-family:'Fredoka';
+  font-size:13px;
+  padding:7px 14px 7px 10px;
+  border-radius:999px;
+  z-index:3;
+}
+.back-link:hover{background:rgba(255,255,255,.28);}
 </style>
 </head>
 <body>
 
 <div class="banner">
+	<a href="index.html" class="back-link">
+  		<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2 L3 7 L9 12" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+ 		 Inicio
+	</a>
   <div class="eyebrow">Día 2</div>
   <h1>Notebook y prompts</h1>
   <p class="sub">Hoy profundizamos en Gemini Notebook para investigar el libro de su equipo, y aprendemos a escribir mejores instrucciones para sacarle más provecho.</p>
