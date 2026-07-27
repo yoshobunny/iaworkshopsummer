@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día 3 Creatividad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFCF5;
+    --card:#FFFFFF;
+    --ink:#2B2418;
+    --ink-soft:#6B6152;
+    --ocean:#1E96A8;
+    --ocean-dark:#146776;
+    --coral:#FF7B54;
+    --coral-dark:#C24A26;
+    --sun:#FFC145;
+    --sun-dark:#B37D0E;
+    --palm:#2FA786;
+    --palm-dark:#1D7863;
+    --line:#EFE6D3;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; font-family:'Nunito Sans',sans-serif; background:var(--paper); color:var(--ink); line-height:1.65;}
+  h1,h2,h3{font-family:'Sora',sans-serif; margin:0;}
+  .badge, .eyebrow{font-family:'Fredoka',sans-serif;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px 100px;}
+
+  img.ph{display:block; object-fit:cover; background:#EFE6D3; border:2px dashed #D8CBA8; border-radius:14px; color:var(--ink-soft); font-size:12px; text-align:center;}
+
+  /* ---- banner ---- */
+  .banner{position:relative; overflow:hidden; background:var(--palm); border-radius:0 0 32px 32px; padding:56px 24px 90px; text-align:center; color:#fff;}
+  .banner .eyebrow{font-size:18px; opacity:.9; margin-bottom:8px;}
+  .banner h1{font-size:clamp(28px,5vw,44px); font-weight:800; letter-spacing:-.5px; line-height:1.08;}
+  .banner .sub{margin-top:14px; font-size:16px; opacity:.92; max-width:520px; margin-left:auto; margin-right:auto;}
+  .banner-art{position:absolute; inset:0; pointer-events:none;}
+
+  /* ---- sections ---- */
+  section{margin-top:56px;}
+  .section-head{display:flex; align-items:center; gap:12px; margin-bottom:20px;}
+  .dot{width:14px; height:14px; border-radius:50%;}
+  .section-head h2{font-size:30px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:28px;}
+
+  /* recap tarea */
+  .recap-card{background:var(--ink); color:#fff; border-radius:20px; padding:26px 28px;}
+  .recap-card h2{color:#fff; font-size:22px; margin-bottom:14px;}
+  .recap-card p{margin:0; font-size:14px; opacity:.92;}
+  .recap-note{margin-top:16px; font-size:13.5px; color:var(--sun); font-weight:600;}
+
+  /* generic split */
+  .split-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:28px; align-items:center;}
+  .split-grid p{margin:0 0 12px; color:var(--ink-soft); font-size:15px;}
+  .split-grid p:last-child{margin-bottom:0;}
+
+  .note-box{margin-top:18px; background:#FFF1E0; border-radius:16px; padding:16px 20px; font-size:14px; color:var(--coral-dark);}
+
+  /* actividad 3 card */
+  .tarea3-card{background:var(--ocean); color:#fff; border-radius:20px; padding:28px;}
+  .tarea3-card h2{color:#fff; font-size:22px; margin-bottom:4px;}
+  .tarea3-due{font-family:'Fredoka'; font-size:14px; background:rgba(255,255,255,.2); display:inline-block; padding:5px 14px; border-radius:999px; margin-bottom:16px;}
+  .tarea3-steps{list-style:none; margin:0 0 20px; padding:0; display:grid; gap:12px;}
+  .tarea3-steps li{display:flex; gap:14px; align-items:flex-start; font-size:14.5px;}
+  .tarea3-steps .stepnum{font-family:'Fredoka'; background:rgba(255,255,255,.22); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px;}
+
+  .elements-table{width:100%; border-collapse:collapse; margin:18px 0; font-size:14px; color:#fff;}
+  .elements-table th{background:rgba(255,255,255,.22); text-align:left; padding:10px 14px; font-family:'Sora'; font-size:13.5px; width:50px;}
+  .elements-table td{padding:9px 14px; border-bottom:1px solid rgba(255,255,255,.18);}
+  .elements-table tr:nth-child(odd) td{background:rgba(255,255,255,.06);}
+
+  @media (max-width:720px){
+    .split-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="eyebrow">Día 3</div>
+  <h1>Creatividad</h1>
+  <p class="sub">Hoy usamos Gemini para crear: imágenes, diseño, y contenido visual, cuidando siempre verificar lo que la IA nos da.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- RECAP ACTIVIDAD 2 -->
+  <section style="margin-top:-50px; position:relative; z-index:2;">
+    <div class="recap-card">
+      <h2>Repaso y recapitulación de la Actividad 2 - Día martes</h2>
+      <p>La entrega fue un Notebook individual sobre un videojuego (Fortnite, Roblox, Minecraft o Genshin Impact), investigando cómo funciona la IA detrás de él, con al menos 2 fuentes y 3 prompts guardados.</p>
+      <div class="recap-note">Esta entrega cuenta para tus 5 entregas del curso.</div>
+      <div style="margin-top:18px;">
+        <img class="ph" src="img/classroom1.png" width="600" height="320" alt="img/classroom1.png">
+      </div>
+    </div>
+  </section>
+
+  <!-- GEMINI CON IMAGENES Y ARCHIVOS -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--ocean);"></span><h2>Gemini con imágenes y archivos</h2></div>
+    <div class="card split-grid">
+      <p>Gemini puede analizar lo que le suban, no solo lo que le escriban. Si le <strong>suben una foto</strong> de una página del libro, puede identificar el tono del texto o resumir esa parte. Si le suben <strong>un documento</strong> largo, puede darles un resumen sin que tengan que leerlo completo. Esto es distinto a <strong>Notebook: aquí es una consulta rápida y puntual, no una fuente que se queda guardada.</strong></p>
+      <img class="ph" src="img/3_1.png" width="280" height="200" alt="img/3_1.png">
+    </div>
+  </section>
+
+  <!-- GEMINI PARA CREATIVIDAD -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--coral);"></span><h2>Gemini para creatividad</h2></div>
+    <div class="card split-grid">
+      <p>Esta es la parte que conecta con lo que van a necesitar mañana y el viernes. Usando las herramientas de Studio que ya vieron en <strong>Notebook (Slide Deck, Video Overview, Infographic, Mind Map),</strong> pueden generar contenido visual con una dirección creativa clara: <strong>elegir una paleta de colores, un estilo de imagen, una estructura de presentación</strong>. <br>
+      Gemini también puede generar imágenes originales para ilustrar ideas o conceptos, útil para portadas, fondos, o elementos gráficos de cualquier proyecto.</p>
+      <img class="ph" src="img/3_3.png" width="380" height="320" alt="img/3_3.png">
+    </div>
+  </section>
+
+  <!-- LIMITES Y CUIDADO -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--sun-dark);"></span><h2>Límites y cuidado: qué NO hacer</h2></div>
+    <div class="card split-grid">
+      <p>La IA puede "<strong>alucinar</strong>": inventar información que suena creíble pero no es cierta. Por eso, antes de usar cualquier dato en una entrega o exposición, hay que verificarlo (revisando la referencia que da Notebook, o buscándolo en otra fuente). <br>
+      <strong>Tampoco se debe</strong> <strong>compartir información personal con la IA</strong> (dirección, teléfono, contraseñas), y el uso dentro de la escuela debe ser siempre responsable: para aprender e investigar más rápido, no para copiar sin entender.</p>
+      <img class="ph" src="img/3_4.png" width="280" height="200" alt="img/3_4.png">
+    </div>
+  </section>
+
+  <!-- ACTIVIDAD 3 -->
+  <section>
+    <div class="tarea3-card">
+      <h2>Actividad 3 - Día miércoles</h2>
+      <div class="tarea3-due">Individual · Entrega: miércoles 29, 23:59</div>
+      <ul class="tarea3-steps">
+        <li><span class="stepnum">1</span>Elige tu artista, banda o grupo de música favorito. Si no tienes uno, elige tu equipo o deportista favorito.</li>
+        <li><span class="stepnum">2</span>Crea un nuevo Notebook y nómbralo: <b>Actividad3_TuNombre</b></li>
+        <li><span class="stepnum">3</span>Agrega al menos 2 fuentes sobre esa persona/grupo.</li>
+      </ul>
+      <p style="font-size:14.5px; margin:0 0 6px;">Tu biografía debe incluir mínimo estos elementos:</p>
+      <table class="elements-table">
+        <tr><th>#</th><th>Elemento</th></tr>
+        <tr><td>1</td><td>Nombre completo y nombre artístico</td></tr>
+        <tr><td>2</td><td>Lugar de origen (ciudad/país)</td></tr>
+        <tr><td>3</td><td>Cómo comenzó su carrera</td></tr>
+        <tr><td>4</td><td>Género o estilo que lo caracteriza</td></tr>
+        <tr><td>5</td><td>Sus 2-3 álbumes, canciones o logros más importantes</td></tr>
+        <tr><td>6</td><td>Un premio o reconocimiento destacado</td></tr>
+        <tr><td>7</td><td>Un dato curioso poco conocido</td></tr>
+        <tr><td>8</td><td>Colores o estética visual que representen su imagen (para el diseño)</td></tr>
+        <tr><td>9</td><td>Al menos 2 imágenes relacionadas</td></tr>
+        <tr><td>10</td><td>Un video o clip corto relacionado</td></tr>
+        <tr><td>11</td><td>Por qué es tu favorito / qué significa para ti</td></tr>
+      </table>
+      <ul class="tarea3-steps" style="margin-top:16px;">
+        <li><span class="stepnum">4</span><span>Usa Studio para generar un <b>Video Overview</b> o un <b>Slide Deck</b> con toda esta información, cuidando el diseño y los colores del punto 8.</span></li>
+        <li><span class="stepnum">5</span>Comparte tu Notebook y entrega el link en Classroom.</li>
+      </ul>
+      <div style="margin-top:18px;">
+        <img class="ph" src="img/3_5.png" width="600" height="260" alt="img/3_5.png">
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVIDAD DEL LIBRO (VIERNES) -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Actividad del libro (viernes)</h2></div>
+    <div class="card split-grid">
+      <p><strong>Más allá del libro que les tocó</strong>, esta misma habilidad aplica en otras materias: resumir un texto largo, generar ideas para una tarea, o pedir que te expliquen un tema difícil paso a paso, siempre aplicando las 4 partes del prompt.</p>
+      <img class="ph" src="img/2_3.png" width="580" height="250" alt="img/2_3.png">
+    </div>
+  </section>
+	
+<!-- CHECK-IN -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--ink);"></span><h2>Check-in de lectura en equipo</h2></div>
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Cierre rápido: </strong>cada pareja comparte qué llevan en su Notebook hasta ahora, y qué van a investigar mañana para la actividad del libro que se presenta el día viernes.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
