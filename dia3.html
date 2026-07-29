@@ -107,6 +107,29 @@
     .shelf{grid-template-columns:1fr 1fr;}
     .points-table, .rubric-table{font-size:12.5px;}
   }
+
+  /* ---- cuadro colorido de actividad ---- */
+  .activity-box{border-radius:24px; overflow:hidden; box-shadow:0 10px 30px rgba(43,36,24,.12);}
+  .activity-head{background:linear-gradient(120deg,var(--ocean),var(--palm)); color:#fff; padding:26px 28px;}
+  .activity-head .eyebrow{font-size:13px; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  .activity-head h2{color:#fff; font-size:24px; margin-top:6px;}
+  .activity-body{background:var(--card); padding:26px 28px;}
+  .activity-meta{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:22px;}
+  .meta-pill{border-radius:16px; padding:16px 18px;}
+  .meta-pill .meta-label{font-family:'Fredoka'; font-size:12.5px; text-transform:uppercase; letter-spacing:.4px; margin-bottom:6px;}
+  .meta-pill .meta-value{font-family:'Sora'; font-size:15px; font-weight:700; color:var(--ink);}
+  .meta-pill .meta-value small{display:block; font-family:'Nunito Sans'; font-weight:600; font-size:13px; color:var(--ink-soft); margin-top:2px;}
+  .meta-entrega{background:#FFF1E0;}
+  .meta-entrega .meta-label{color:var(--coral-dark);}
+  .meta-presenta{background:#E9F7F4;}
+  .meta-presenta .meta-label{color:var(--palm-dark);}
+  .activity-instructions{background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:16px 18px; font-size:14.5px; color:var(--ink-soft); margin-bottom:22px;}
+  .activity-instructions strong{color:var(--ink);}
+  .activity-body h3.table-title{font-family:'Sora'; font-size:16px; margin-bottom:10px;}
+
+  @media (max-width:720px){
+    .activity-meta{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
@@ -164,10 +187,9 @@
     </div>
   </section>
 
-  <!-- RECAPITULACION EQUIPO Y LIBRO -->
+  <!-- LIBROS POR FILA -->
   <section>
-    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Actividad 4: Notebook del libro asignado</h2>
-    </div>
+    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Libro asignado por fila</h2></div>
     <div class="card">
       <div class="shelf">
         <div class="spine s1">
@@ -191,62 +213,51 @@
           <div class="book-info"><div class="title">Feed</div><div class="author">M.T. Anderson</div></div>
         </div>
       </div>
-      <div class="note-box">
-        <h2>Hoy miércoles 29 de julio hasta las 23:59 se entrega el Notebook</h2>
-        <h2>Cada persona debe subir de forma individual el enlace del Notebook&nbsp;</h2>
+    </div>
+  </section>
+
+  <!-- CUADRO COLORIDO: ACTIVIDAD 4 -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--coral);"></span><h2>Actividad del día</h2></div>
+    <div class="activity-box">
+      <div class="activity-head">
+        <div class="eyebrow">Actividad 4</div>
+        <h2>Notebook del libro asignado</h2>
+      </div>
+      <div class="activity-body">
+
+        <div class="activity-instructions">
+          <strong>Instrucciones:</strong> cada persona debe subir de forma individual el enlace del Notebook. El Notebook debe incluir los 10 puntos del libro (tabla abajo), más un deck, una infografía, un informe y un video.<br><br>
+          Trabajen en parejas dentro de su equipo: cada pareja cubre la mitad de los puntos, y al final se juntan para armar la presentación completa. Con los 10 puntos resueltos, escriban el guion completo: quién dice qué, en qué orden y cuánto tiempo le dedican a cada parte para que quepa en los 5 minutos. Ensayen leyéndolo en voz alta al menos una vez antes de mañana.
+        </div>
+
+        <div class="activity-meta">
+          <div class="meta-pill meta-entrega">
+            <div class="meta-label">Fecha de entrega</div>
+            <div class="meta-value">Hoy miércoles 29 de julio<small>hasta las 23:59</small></div>
+          </div>
+          <div class="meta-pill meta-presenta">
+            <div class="meta-label">Fecha de presentación</div>
+            <div class="meta-value">Jueves: Fila 1 y 2<small>Viernes: Fila 3 y 4 · 5 minutos por equipo</small></div>
+          </div>
+        </div>
+
+        <h3 class="table-title">Puntos que incluir del libro en su Notebook</h3>
+        <table class="points-table">
+          <tr><th>#</th><th>Descripción</th></tr>
+          <tr><td>1</td><td>Título, autor y año de publicación. Nombres completos de los integrantes del equipo.</td></tr>
+          <tr><td>2</td><td>Resumen de la trama: inicio, desenlace, final.</td></tr>
+          <tr><td>3</td><td>El mensaje principal del autor sobre tecnología.</td></tr>
+          <tr><td>4</td><td>Un personaje clave y por qué es importante para la historia.</td></tr>
+          <tr><td>5</td><td>Una cita o pasaje representativo del libro (corto).</td></tr>
+          <tr><td>6</td><td>Cómo se conecta el mensaje del libro con la actualidad (redes sociales, IA, tecnología de hoy).</td></tr>
+          <tr><td>7</td><td>Elementos visuales para la presentación: colores, imágenes, estilo.</td></tr>
+          <tr><td>8</td><td>Orden de la presentación: quién habla en qué parte (tienen 5 minutos en total).</td></tr>
+          <tr><td>9</td><td>Verificar en Notebook que cada punto tiene una referencia real del libro.</td></tr>
+          <tr><td>10</td><td>En su notebook deben incluir un deck, una infografía, un informe y un video.</td></tr>
+        </table>
 
       </div>
-    </div>
-  </section>
-
-  <!-- HOY TERMINAMOS -->
-  <section>
-    <div class="section-head"><span class="dot" style="background:var(--ocean);"></span><h2>Hoy terminamos de preparar la presentación</h2></div>
-    <div class="card">
-      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Todo lo que trabajen hoy debe quedar dentro del Notebook del libro de su equipo.&nbsp;</strong></p>
-      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Trabajen en parejas dentro de su equipo:</strong> cada pareja cubre la mitad de los puntos de abajo, y al final se juntan para armar la presentación completa. <br>
-        <strong>Tienen 5 minutos para realizar su exposición.&nbsp;</strong><br>
-      </p>
-    </div>
-  </section>
-
-  <!-- PUNTOS A ABORDAR -->
-  <section>
-    <div class="section-head"><span class="dot" style="background:var(--coral);"></span><h2>Puntos que incluir  del libro en su Notebook</h2>
-    </div>
-    <div class="card">
-      <table class="points-table">
-        <tr><th>#</th><th>Descripción</th></tr>
-        <tr><td>1</td><td>Título, autor y año de publicación. Nombres completos de los integrantes del equipo.</td></tr>
-        <tr><td>2</td><td>Resumen de la trama: inicio, desenlace, final.</td></tr>
-        <tr><td>3</td><td>El mensaje principal del autor sobre tecnología.</td></tr>
-        <tr><td>4</td><td>Un personaje clave y por qué es importante para la historia.</td></tr>
-        <tr><td>5</td><td>Una cita o pasaje representativo del libro (corto).</td></tr>
-        <tr><td>6</td><td>Cómo se conecta el mensaje del libro con la actualidad (redes sociales, IA, tecnología de hoy).</td></tr>
-        <tr><td>7</td><td>Elementos visuales para la presentación: colores, imágenes, estilo.</td></tr>
-        <tr><td>8</td><td>Orden de la presentación: quién habla en qué parte (tienen 5 minutos en total).</td></tr>
-        <tr><td>9</td><td>Verificar en Notebook que cada punto tiene una referencia real del libro.</td></tr>
-        <tr><td>10</td><td>En su notebook deben incluir un deck, una infografía, un informe y un video.</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- GUION -->
-  <section>
-    <div class="section-head"><span class="dot" style="background:var(--sun-dark);"></span><h2>Preparen su guion</h2></div>
-    <div class="card">
-      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Con los 10 puntos ya resueltos, </strong>escriban el guion completo de su exposición:&nbsp;</p>
-      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>quién dice qué, en qué orden, y cuánto tiempo</strong> le dedican a cada parte para que quepa en los 5 minutos. Ensayen leyéndolo en voz alta al menos una vez antes de mañana.</p>
-    </div>
-  </section>
-
-    <!-- CHECK-IN -->
-  <section>
-    <div class="section-head"><span class="dot" style="background:var(--sun);"></span><h2>¿Qué día voy a presentar?</h2></div>
-    <div class="card">
-      <p style="color:var(--ink-soft); font-size:19px; margin:0;"><strong>Jueves:</strong> Fila 1 y 2</p>
-      <p style="color:var(--ink-soft); font-size:19px; margin:0;"><strong>Viernes:</strong> Fila 3 y 4</p>
-
     </div>
   </section>
 
