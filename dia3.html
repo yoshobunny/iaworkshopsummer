@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Día 3 Creatividad</title>
+<title>Día 3 Notebook del libro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Nunito+Sans:wght@400;600;700&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
 <style>
@@ -31,11 +31,31 @@
   img.ph{display:block; object-fit:cover; background:#EFE6D3; border:2px dashed #D8CBA8; border-radius:14px; color:var(--ink-soft); font-size:12px; text-align:center;}
 
   /* ---- banner ---- */
-  .banner{position:relative; overflow:hidden; background:var(--palm); border-radius:0 0 32px 32px; padding:56px 24px 90px; text-align:center; color:#fff;}
+  .banner{position:relative; overflow:hidden; background:var(--ocean); border-radius:0 0 32px 32px; padding:56px 24px 90px; text-align:center; color:#fff;}
   .banner .eyebrow{font-size:18px; opacity:.9; margin-bottom:8px;}
   .banner h1{font-size:clamp(28px,5vw,44px); font-weight:800; letter-spacing:-.5px; line-height:1.08;}
   .banner .sub{margin-top:14px; font-size:16px; opacity:.92; max-width:520px; margin-left:auto; margin-right:auto;}
   .banner-art{position:absolute; inset:0; pointer-events:none;}
+
+  /* Boton de Inicio que esta en el header*/
+  .back-link{
+    position:absolute;
+    top:20px;
+    left:20px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.3);
+    color:#fff;
+    text-decoration:none;
+    font-family:'Fredoka';
+    font-size:13px;
+    padding:7px 14px 7px 10px;
+    border-radius:999px;
+    z-index:3;
+  }
+  .back-link:hover{background:rgba(255,255,255,.28);}
 
   /* ---- sections ---- */
   section{margin-top:56px;}
@@ -57,41 +77,36 @@
 
   .note-box{margin-top:18px; background:#FFF1E0; border-radius:16px; padding:16px 20px; font-size:14px; color:var(--coral-dark);}
 
-  /* actividad 3 card */
-  .tarea3-card{background:var(--ocean); color:#fff; border-radius:20px; padding:28px;}
-  .tarea3-card h2{color:#fff; font-size:22px; margin-bottom:4px;}
-  .tarea3-due{font-family:'Fredoka'; font-size:14px; background:rgba(255,255,255,.2); display:inline-block; padding:5px 14px; border-radius:999px; margin-bottom:16px;}
-  .tarea3-steps{list-style:none; margin:0 0 20px; padding:0; display:grid; gap:12px;}
-  .tarea3-steps li{display:flex; gap:14px; align-items:flex-start; font-size:14.5px;}
-  .tarea3-steps .stepnum{font-family:'Fredoka'; background:rgba(255,255,255,.22); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px;}
+  /* libros shelf */
+  .shelf{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:8px;}
+  .spine{border-radius:14px; overflow:hidden; color:#fff; display:flex; flex-direction:column;}
+  .spine .row-tag-bar{font-family:'Fredoka'; font-size:14px; padding:8px 12px;}
+  .spine .book-info{padding:14px 12px 16px;}
+  .spine .title{font-family:'Sora'; font-size:15px; font-weight:700; line-height:1.3;}
+  .spine .author{font-size:12.5px; opacity:.85; margin-top:6px;}
+  .s1{background:var(--ocean);}
+  .s2{background:var(--coral);}
+  .s3{background:var(--palm);}
+  .s4{background:var(--sun-dark);}
 
-  .elements-table{width:100%; border-collapse:collapse; margin:18px 0; font-size:14px; color:#fff;}
-  .elements-table th{background:rgba(255,255,255,.22); text-align:left; padding:10px 14px; font-family:'Sora'; font-size:13.5px; width:50px;}
-  .elements-table td{padding:9px 14px; border-bottom:1px solid rgba(255,255,255,.18);}
-  .elements-table tr:nth-child(odd) td{background:rgba(255,255,255,.06);}
+  /* puntos a abordar */
+  .points-table{width:100%; border-collapse:collapse; margin:18px 0; font-size:14px;}
+  .points-table th{background:var(--ocean); color:#fff; text-align:left; padding:10px 14px; font-family:'Sora'; font-size:13.5px; width:44px;}
+  .points-table td{padding:10px 14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+  .points-table tr:nth-child(odd) td{background:var(--paper);}
+
+  /* rubrica */
+  .rubric-table{width:100%; border-collapse:collapse; margin:18px 0; font-size:14px;}
+  .rubric-table th{background:var(--coral); color:#fff; text-align:left; padding:10px 14px; font-family:'Sora'; font-size:13.5px;}
+  .rubric-table td{padding:10px 14px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
+  .rubric-table tr:nth-child(odd) td{background:var(--paper);}
+  .rubric-table td:last-child, .rubric-table th:last-child{text-align:center; font-family:'Sora'; font-weight:700; color:var(--ink); width:70px;}
 
   @media (max-width:720px){
     .split-grid{grid-template-columns:1fr;}
+    .shelf{grid-template-columns:1fr 1fr;}
+    .points-table, .rubric-table{font-size:12.5px;}
   }
-/* Boton de Inicio que esta en el header*/
-	.back-link{
-  position:absolute;
-  top:20px;
-  left:20px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-  background:rgba(255,255,255,.18);
-  border:1px solid rgba(255,255,255,.3);
-  color:#fff;
-  text-decoration:none;
-  font-family:'Fredoka';
-  font-size:13px;
-  padding:7px 14px 7px 10px;
-  border-radius:999px;
-  z-index:3;
-}
-.back-link:hover{background:rgba(255,255,255,.28);}
 </style>
 </head>
 <body>
@@ -112,10 +127,10 @@
   <section style="margin-top:-50px; position:relative; z-index:2;">
     <div class="recap-card">
       <h2>Repaso y recapitulación de la Actividad 2 - Día martes</h2>
-      <p>La entrega fue un Notebook individual sobre un videojuego (Fortnite, Roblox, Minecraft o Genshin Impact), investigando cómo funciona la IA detrás de él, con al menos 2 fuentes y 3 prompts guardados.</p>
-      <div class="recap-note">Esta entrega cuenta para tus 5 entregas del curso.</div>
+      <p>La entrega fue un Notebook individual sobre un videojuego (Fortnite, Roblox, Minecraft o Genshin Impact), investigando cómo funciona la IA detrás de él, con al menos <strong>1 fuente, los prompts guardados, un infome, un deck y una infografía.</strong></p>
+      <div class="recap-note">Esta entrega cuenta para tus 4 entregas del curso.</div>
       <div style="margin-top:18px;">
-        <img class="ph" src="img/classroom1.png" width="600" height="320" alt="img/classroom1.png">
+        <img class="ph" src="img/2_Actividad.png" width="600" height="320" alt="img/2_Actividad.png">
       </div>
     </div>
   </section>
@@ -149,55 +164,104 @@
     </div>
   </section>
 
-  <!-- ACTIVIDAD 3 -->
+  <!-- RECAPITULACION EQUIPO Y LIBRO -->
   <section>
-    <div class="tarea3-card">
-      <h2>Actividad 3 - Día miércoles</h2>
-      <div class="tarea3-due">Individual · Entrega: miércoles 29, 23:59</div>
-      <ul class="tarea3-steps">
-        <li><span class="stepnum">1</span>Elige tu artista, banda o grupo de música favorito. Si no tienes uno, elige tu equipo o deportista favorito.</li>
-        <li><span class="stepnum">2</span>Crea un nuevo Notebook y nómbralo: <b>Actividad3_TuNombre</b></li>
-        <li><span class="stepnum">3</span>Agrega al menos 2 fuentes sobre esa persona/grupo.</li>
-      </ul>
-      <p style="font-size:14.5px; margin:0 0 6px;">Tu biografía debe incluir mínimo estos elementos:</p>
-      <table class="elements-table">
-        <tr><th>#</th><th>Elemento</th></tr>
-        <tr><td>1</td><td>Nombre completo y nombre artístico</td></tr>
-        <tr><td>2</td><td>Lugar de origen (ciudad/país)</td></tr>
-        <tr><td>3</td><td>Cómo comenzó su carrera</td></tr>
-        <tr><td>4</td><td>Género o estilo que lo caracteriza</td></tr>
-        <tr><td>5</td><td>Sus 2-3 álbumes, canciones o logros más importantes</td></tr>
-        <tr><td>6</td><td>Un premio o reconocimiento destacado</td></tr>
-        <tr><td>7</td><td>Un dato curioso poco conocido</td></tr>
-        <tr><td>8</td><td>Colores o estética visual que representen su imagen (para el diseño)</td></tr>
-        <tr><td>9</td><td>Al menos 2 imágenes relacionadas</td></tr>
-        <tr><td>10</td><td>Un video o clip corto relacionado</td></tr>
-        <tr><td>11</td><td>Por qué es tu favorito / qué significa para ti</td></tr>
-      </table>
-      <ul class="tarea3-steps" style="margin-top:16px;">
-        <li><span class="stepnum">4</span><span>Usa Studio para generar un <b>Video Overview</b> o un <b>Slide Deck</b> con toda esta información, cuidando el diseño y los colores del punto 8.</span></li>
-        <li><span class="stepnum">5</span>Comparte tu Notebook y entrega el link en Classroom.</li>
-      </ul>
-      <div style="margin-top:18px;">
-        <img class="ph" src="img/3_5.png" width="600" height="260" alt="img/3_5.png">
+    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Actividad 4: Notebook del libro asignado</h2>
+    </div>
+    <div class="card">
+      <div class="shelf">
+        <div class="spine s1">
+          <div class="row-tag-bar">fila 1</div>
+          <img class="ph" src="img/libro1.png" width="220" height="220" alt="img/libro1.png">
+          <div class="book-info"><div class="title">La máquina se detiene</div><div class="author">E.M. Forster</div></div>
+        </div>
+        <div class="spine s2">
+          <div class="row-tag-bar">fila 2</div>
+          <img class="ph" src="img/libro2.png" width="220" height="220" alt="img/libro2.png">
+          <div class="book-info"><div class="title">Fahrenheit 451</div><div class="author">Ray Bradbury</div></div>
+        </div>
+        <div class="spine s3">
+          <div class="row-tag-bar">fila 3</div>
+          <img class="ph" src="img/libro3.png" width="220" height="220" alt="img/libro3.png">
+          <div class="book-info"><div class="title">Yo, Robot</div><div class="author">Isaac Asimov</div></div>
+        </div>
+        <div class="spine s4">
+          <div class="row-tag-bar">fila 4</div>
+          <img class="ph" src="img/libro4.png" width="220" height="220" alt="img/libro4.png">
+          <div class="book-info"><div class="title">Feed</div><div class="author">M.T. Anderson</div></div>
+        </div>
+      </div>
+      <div class="note-box">
+        <h2>Hoy miércoles 29 de julio hasta las 23:59 se entrega el Notebook</h2>
+        <h2>Cada persona debe subir de forma individual el enlace del Notebook&nbsp;</h2>
+
       </div>
     </div>
   </section>
 
-  <!-- ACTIVIDAD DEL LIBRO (VIERNES) -->
+  <!-- HOY TERMINAMOS -->
   <section>
-    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Actividad del libro (viernes)</h2></div>
-    <div class="card split-grid">
-      <p><strong>Más allá del libro que les tocó</strong>, esta misma habilidad aplica en otras materias: resumir un texto largo, generar ideas para una tarea, o pedir que te expliquen un tema difícil paso a paso, siempre aplicando las 4 partes del prompt.</p>
-      <img class="ph" src="img/2_3.png" width="580" height="250" alt="img/2_3.png">
+    <div class="section-head"><span class="dot" style="background:var(--ocean);"></span><h2>Hoy terminamos de preparar la presentación</h2></div>
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Todo lo que trabajen hoy debe quedar dentro del Notebook del libro de su equipo.&nbsp;</strong></p>
+      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Trabajen en parejas dentro de su equipo:</strong> cada pareja cubre la mitad de los puntos de abajo, y al final se juntan para armar la presentación completa. <br>
+        <strong>Tienen 5 minutos para realizar su exposición.&nbsp;</strong><br>
+      </p>
     </div>
   </section>
-	
-<!-- CHECK-IN -->
+
+  <!-- PUNTOS A ABORDAR -->
   <section>
-    <div class="section-head"><span class="dot" style="background:var(--ink);"></span><h2>Check-in de lectura en equipo</h2></div>
+    <div class="section-head"><span class="dot" style="background:var(--coral);"></span><h2>Puntos que incluir  del libro en su Notebook</h2>
+    </div>
     <div class="card">
-      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Cierre rápido: </strong>cada pareja comparte qué llevan en su Notebook hasta ahora, y qué van a investigar mañana para la actividad del libro que se presenta el día viernes.</p>
+      <table class="points-table">
+        <tr><th>#</th><th>Descripción</th></tr>
+        <tr><td>1</td><td>Título, autor y año de publicación. Nombres completos de los integrantes del equipo.</td></tr>
+        <tr><td>2</td><td>Resumen de la trama: inicio, desenlace, final.</td></tr>
+        <tr><td>3</td><td>El mensaje principal del autor sobre tecnología.</td></tr>
+        <tr><td>4</td><td>Un personaje clave y por qué es importante para la historia.</td></tr>
+        <tr><td>5</td><td>Una cita o pasaje representativo del libro (corto).</td></tr>
+        <tr><td>6</td><td>Cómo se conecta el mensaje del libro con la actualidad (redes sociales, IA, tecnología de hoy).</td></tr>
+        <tr><td>7</td><td>Elementos visuales para la presentación: colores, imágenes, estilo.</td></tr>
+        <tr><td>8</td><td>Orden de la presentación: quién habla en qué parte (tienen 5 minutos en total).</td></tr>
+        <tr><td>9</td><td>Verificar en Notebook que cada punto tiene una referencia real del libro.</td></tr>
+        <tr><td>10</td><td>En su notebook deben incluir un deck, una infografía, un informe y un video.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- GUION -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--sun-dark);"></span><h2>Preparen su guion</h2></div>
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>Con los 10 puntos ya resueltos, </strong>escriban el guion completo de su exposición:&nbsp;</p>
+      <p style="color:var(--ink-soft); font-size:15px; margin:0;"><strong>quién dice qué, en qué orden, y cuánto tiempo</strong> le dedican a cada parte para que quepa en los 5 minutos. Ensayen leyéndolo en voz alta al menos una vez antes de mañana.</p>
+    </div>
+  </section>
+
+    <!-- CHECK-IN -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--sun);"></span><h2>¿Qué día voy a presentar?</h2></div>
+    <div class="card">
+      <p style="color:var(--ink-soft); font-size:19px; margin:0;"><strong>Jueves:</strong> Fila 1 y 2</p>
+      <p style="color:var(--ink-soft); font-size:19px; margin:0;"><strong>Viernes:</strong> Fila 3 y 4</p>
+
+    </div>
+  </section>
+
+  <!-- RUBRICA -->
+  <section>
+    <div class="section-head"><span class="dot" style="background:var(--palm);"></span><h2>Rúbrica de evaluación</h2></div>
+    <div class="card">
+      <table class="rubric-table">
+        <tr><th>Criterio</th><th>Qué se evalúa</th><th>Peso</th></tr>
+        <tr><td><b>Contenido y mensaje</b></td><td>Los 10 puntos están cubiertos y el mensaje del libro queda claro</td><td>35%</td></tr>
+        <tr><td><b>Uso de Gemini/Notebook</b></td><td>Se nota que investigaron con la herramienta, no solo opinión personal</td><td>20%</td></tr>
+        <tr><td><b>Creatividad y diseño</b></td><td>Elementos visuales, colores, imágenes, algo memorable</td><td>25%</td></tr>
+        <tr><td><b>Trabajo en equipo</b></td><td>Todos participan y se nota reparto de responsabilidades</td><td>10%</td></tr>
+        <tr><td><b>Tiempo</b></td><td>La exposición dura cerca de los 5 minutos, ni corta ni larga</td><td>10%</td></tr>
+      </table>
     </div>
   </section>
 
